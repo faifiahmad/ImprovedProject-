@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Meme Generator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-firestore.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyA1WlITSeBhfuqq__IoizAElRJMS-CFCJQ",
+            authDomain: "memegenerator-61531.firebaseapp.com",
+            databaseURL: "https://memegenerator-61531.firebaseio.com",
+            projectId: "memegenerator-61531",
+            storageBucket: "memegenerator-61531.appspot.com",
+            messagingSenderId: "732618097625"
+        };
+        firebase.initializeApp(config);
+    </script>
+
+</head>
+
+<body>
+
+    <div id="main">
+        <img src="">
+    </div>
+
+    <div class="vertical-menu">
+
+        <button class="dropbtn">Memes</button>
+        <div class="dropdown-content" id="drop">
+            <a href="#" class="active"></a>
+        </div>
+    </div>
+    <div class="container1">
+        <canvas id="myCanvas" width="240" height="297" style="border:1px solid #d3d3d3;">
+            Your browser does not support the HTML5 canvas tag.
+        </canvas>
+    </div>
+
+    <div class="container">
+
+        <img hidden id="img" src="">
+
+    </div>
+
+    <div class="container2">
+        <p>
+            <textarea id="top-text"></textarea>
+            Text size: <input type="range" id="top-text-size-input" min="10" max="100" value="30" step="10">
+        </p>
+        <p>
+            <textarea id="bottom-text"></textarea>
+            Text size: <input type="range" id="bottom-text-size-input" min="10" max="100" value="30" step="10">
+        </p>
+
+        <p>
+            <button onclick="writeAll()" id="write-btn">Write</button>
+        </p>
+
+        <p>
+            <button onclick="clean()" id="clear-btn">Refresh</button>
+        </p>
+        <p>
+            <button onclick="generate()" id="generate-btn">Generate</button>
+        </p>
+        <p>
+            <canvas id="meme-canvas" title="Right click -> &quot;Save image as...&quot;"></canvas>
+        </p>
+
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>
